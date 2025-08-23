@@ -20,6 +20,8 @@ for something that should be optional isn't right. This should be a toggle or se
 Connecting ALL players of the mod together in one shared bucket, to me, seems like a privacy/security risk, as services running on said computer might be vulnerable 
 and therefore will be exposed to anyone playing the mod where a regular NAT router wouldn't allow access unless explicitly port forwarded. However, please correct me if my understanding of how the VPN service works is flawed.
 
+If you like this mod, please donate to the original author on https://subnauticamultiplayer.com.
+
 ## Instructions
 1. Download the latest release at <a href="https://github.com/Troplo/Subnautica-BZ-Multiplayer-Linux/releases">releases</a>.
 2. Extract the ZIP file
