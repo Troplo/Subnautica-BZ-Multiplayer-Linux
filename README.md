@@ -25,7 +25,7 @@ and therefore will be exposed to anyone playing the mod where a regular NAT rout
 5. Right click "Subnautica: Below Zero" in Steam, select "Properties," and in the "General" tab, update your "Launch Options" to the following:
   `-peerIp LOCAL_OR_REMOTE_IP_ADDRESS -peerId RANDOM_UNIQUE_PEER_ID -userId RANDOM_UNIQUE_ID -username YOUR_USERNAME` You will need to update these values.
 - `-peerIp` If you are in a LAN (Local Area Network)/same network, please enter your Local IP address of the computer. If you are playing remotely through the internet, please enter your public IP address. (IPv4) **Example: `-peerIp 192.168.0.12`
-- `-peerId` This is a random string, make sure it's unique between all players. **NO SPACES.** Example: `-peerId troplo`
+- `-peerId` This is a random string, make sure it's unique between all players. **NO SPACES.** Example: `-peerId troplo:connectIP:127.0.0.1` (connectIP is a special literal so your game doesn't try to connect to your public IP if you're not port forwarding yet, or have NAT reflection issues. You can replace 127.0.0.1 with any IP address. This is used when creating/hosting a server.)
 - `-userId` This is a random numerical ID, make sure it's unique between all players. Example: `-userId 1`
 - `-username` This is your desired in-game username. Make sure it's unique between all players. **NO SPACES** Example: `-username Troplo`
 6. Launch Subnautica BZ and Enjoy! **ALL PLAYERS NEED TO FOLLOW THIS**
