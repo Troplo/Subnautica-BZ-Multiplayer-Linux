@@ -1,4 +1,7 @@
-<img src="https://i.troplo.com/i/52c4f6a9f34d.png" width="300px">
+<div style="display: flex; align-items: flex-start; gap: 10px;">
+  <img src="https://i.troplo.com/i/52c4f6a9f34d.png" width="300">
+  <img src="https://i.troplo.com/i/3cd021fe77ec.png" width="300">
+</div>
 
 # Subnautica: Below Zero Multiplayer (By BOT Benson) for Linux/NetBird Removed
 
@@ -34,5 +37,5 @@ and therefore will be exposed to anyone playing the mod where a regular NAT rout
 To play 100% offline, you need to setup an API server, as the mod by default connects to the mod author's server to provide the Invite Code service.
 Because there's a check to make sure you're connected to the VPN. I had to host a custom reimplementation of this service at `subbz-api.troplo.com` to make sure it doesn't send an error when joining/hosting.
 You can find the reimplementation source code <a href="https://github.com/Troplo/Subnautica-BZ-Multiplayer-API">here.</a>
-- To make it used by the clients pass in `-apiEndpoint https://api.yourdomain.com/api/` (example: `-apiEndpoint https://subbz-api.troplo.com/api/`)
-- You can use insecure HTTP by replacing https with http.
+- To make it used by the clients pass in `-apiEndpoint http://localhost:24031/api/` (example: `-apiEndpoint https://subbz-api.troplo.com/api/`) (You would want to replace localhost with your computer's local IP if in a LAN with other players)
+- You can use HTTPS by replacing http with https.
