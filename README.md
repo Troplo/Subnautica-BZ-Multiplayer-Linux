@@ -36,7 +36,7 @@ If you like this mod, please donate to the original author on https://subnautica
 6. Launch Subnautica BZ and Enjoy! **ALL PLAYERS NEED TO FOLLOW THIS**
 
 ## Port Forwarding
-You need to port forward port <strong>24032</strong> (TCP/UDP). The instructions on how to port forward differ greatly depending on what router and network setup you have. If you are unable to port forward, you can use VPN software such as LogMeIn Hamachi to connect to each other.
+The server host will need to port forward the port <strong>24032</strong> (TCP/UDP). The instructions on how to port forward differ greatly depending on what router and network setup you have. If you are unable to port forward, you can use VPN software such as LogMeIn Hamachi to connect to each other.
 
 ## OPTIONAL: Setup fully offline API server
 To play 100% offline, you need to setup an API server, as the mod by default connects to the mod author's server to provide the Invite Code service.
