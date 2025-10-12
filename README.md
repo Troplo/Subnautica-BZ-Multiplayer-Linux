@@ -31,7 +31,7 @@ If you like this mod, please donate to the original author on https://subnautica
   `-peerIp LOCAL_OR_REMOTE_IP_ADDRESS -peerId RANDOM_UNIQUE_PEER_ID -userId RANDOM_UNIQUE_ID -username YOUR_USERNAME` You will need to update these values.
 - `-peerIp` If you are in a LAN (Local Area Network)/same network, please enter your Local IP address of the computer. If you are playing remotely through the internet, please enter your public IP address. (IPv4) **Example: `-peerIp 192.168.0.12`
 - `-peerId` This is a random string, make sure it's unique between all players. **NO SPACES.** Example: `-peerId troplo:connectIP:127.0.0.1` (connectIP is a special literal so your game doesn't try to connect to your public IP if you're not port forwarding yet, or have NAT reflection issues. You can replace 127.0.0.1 with any IP address. This is used when creating/hosting a server.)
-- `-userId` This is a random numerical ID, make sure it's unique between all players. Example: `-userId 1`
+- `-userId` This is a random numerical ID, make sure it's unique between all players. If it isn't unique, this will cause serious problems, so coordinate between players to ensure everyone has a unique number. Example: `-userId 1`
 - `-username` This is your desired in-game username. Make sure it's unique between all players. **NO SPACES** Example: `-username Troplo`
 6. Launch Subnautica BZ and Enjoy! **ALL PLAYERS NEED TO FOLLOW THIS**
 
@@ -39,8 +39,10 @@ If you like this mod, please donate to the original author on https://subnautica
 The server host will need to port forward the port <strong>24032</strong> (TCP/UDP). The instructions on how to port forward differ greatly depending on what router and network setup you have. If you are unable to port forward, you can use VPN software such as LogMeIn Hamachi to connect to each other.
 
 ## OPTIONAL: Setup fully offline API server
-To play 100% offline, you need to setup an API server, as the mod by default connects to the mod author's server to provide the Invite Code service.
-Because there's a check to make sure you're connected to the VPN. I had to host a custom reimplementation of this service at `subbz-api.troplo.com` to make sure it doesn't send an error when joining/hosting.
+In patch version 1.0.2, I temporarily removed the `-apiEndpoint` argument, as it caused issues if the patched string did not equal 42 bytes. It connects to `subnauticamultiplay.troplo.com`. Due to the simplicity of the API, it would be feasible to perhaps remove the API connection completely. You can recompile the `Subnautica.Multiplayer.LinuxPatch` module from the source in this repository with a different address if needed.
+
+<s>To play 100% offline, you need to setup an API server, as the mod by default connects to the mod author's server to provide the Invite Code service.
+Because there's a check to make sure you're connected to the VPN. I had to host a custom reimplementation of this service at `subbz-api.troplo.com` or `subnauticamultiplay.troplo.com` (depending on patch version) to make sure it doesn't send an error when joining/hosting.
 You can find the reimplementation source code <a href="https://github.com/Troplo/Subnautica-BZ-Multiplayer-API">here.</a>
 - To make it used by the clients pass in `-apiEndpoint http://localhost:24031/api/` (example: `-apiEndpoint https://subbz-api.troplo.com/api/`) (You would want to replace localhost with your computer's local IP if in a LAN with other players)
-- You can use HTTPS by replacing http with https.
+- You can use HTTPS by replacing http with https.</s>
