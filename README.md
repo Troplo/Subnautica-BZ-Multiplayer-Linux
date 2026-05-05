@@ -22,11 +22,31 @@ and therefore will be exposed to anyone playing the mod where a regular NAT rout
 
 If you like this mod, please donate to the original author on https://subnauticamultiplayer.com.
 
-## Instructions
+## Read this if you're getting a black screen/can't interact with objects
+If you're having issues where you can't interact with certain objects, like leaving bases, or are getting a black screen at the start of the game then you can try using this temporary workaround:
+Add `taskset -c 0,1 %command%` to the start of the Launch Parameters field in Steam. This goes BEFORE any other text, so your arguments in the end may look like `taskset -c 0,1 %command% -userId 1 -username Troplo`.
+This restricts it to 2 threads, as a result your FPS will decrease, if it resolves the issue and you want higher FPS, you can try increasing it to 3 or 4 threads, e.g. `taskset -c 0,1,2` for 3 threads.
+
+This is a temporary hacky solution until I figure out the real cause, I assume it's a race condition somewhere in the regular multiplayer mod (not my patch) causing the state to break. [#2](https://github.com/Troplo/Subnautica-BZ-Multiplayer-Linux/issues/2)
+
+## Instructions for Linux
 1. Download the latest release at <a href="https://github.com/Troplo/Subnautica-BZ-Multiplayer-Linux/releases">releases</a>.
 2. Extract the ZIP file
 3. Move all the folders/files in `Game Folder` to your `SubnauticaZero` install location. You can find this by right clicking Subnautica: Below Zero in Steam, selecting "Properties" -> "Installed Files" -> Browse.
 4. Move `.botbenson` to `drive_c/users/steamuser/AppData/Roaming` in the Proton/WINE Prefix. For me, this was `.local/share/Steam/steamapps/compatdata/848450/pfx/drive_c/users/steamuser/AppData/Roaming/` (Please run Subnautica BZ at least once to create this folder)
+5. Right click "Subnautica: Below Zero" in Steam, select "Properties," and in the "General" tab, update your "Launch Options" to the following:
+  `-peerIp LOCAL_OR_REMOTE_IP_ADDRESS -peerId RANDOM_UNIQUE_PEER_ID -userId RANDOM_UNIQUE_ID -username YOUR_USERNAME` You will need to update these values.
+- `-peerIp` If you are in a LAN (Local Area Network)/same network, please enter your Local IP address of the computer. If you are playing remotely through the internet, please enter your public IP address. (IPv4) **Example: `-peerIp 192.168.0.12`
+- `-peerId` This is a random string, make sure it's unique between all players. **NO SPACES.** Example: `-peerId troplo:connectIP:127.0.0.1` (connectIP is a special literal so your game doesn't try to connect to your public IP if you're not port forwarding yet, or have NAT reflection issues. You can replace 127.0.0.1 with any IP address. This is used when creating/hosting a server.)
+- `-userId` This is a random numerical ID, make sure it's unique between all players. If it isn't unique, this will cause serious problems, so coordinate between players to ensure everyone has a unique number. Example: `-userId 1`
+- `-username` This is your desired in-game username. Make sure it's unique between all players. **NO SPACES** Example: `-username Troplo`
+6. Launch Subnautica BZ and Enjoy! **ALL PLAYERS NEED TO FOLLOW THIS**
+
+## Instructions for Windows (Crossplay)
+1. Download the latest release at <a href="https://github.com/Troplo/Subnautica-BZ-Multiplayer-Linux/releases">releases</a>.
+2. Extract the ZIP file
+3. Move all the folders/files in `Game Folder` to your `SubnauticaZero` install location. You can find this by right clicking Subnautica: Below Zero in Steam, selecting "Properties" -> "Installed Files" -> Browse.
+4. Move `.botbenson` to `%AppData%` in the File Explorer. You may need to show hidden folders in Windows for this to appear.
 5. Right click "Subnautica: Below Zero" in Steam, select "Properties," and in the "General" tab, update your "Launch Options" to the following:
   `-peerIp LOCAL_OR_REMOTE_IP_ADDRESS -peerId RANDOM_UNIQUE_PEER_ID -userId RANDOM_UNIQUE_ID -username YOUR_USERNAME` You will need to update these values.
 - `-peerIp` If you are in a LAN (Local Area Network)/same network, please enter your Local IP address of the computer. If you are playing remotely through the internet, please enter your public IP address. (IPv4) **Example: `-peerIp 192.168.0.12`
